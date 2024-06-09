@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="t4is.uv.mx/compras"
+    xmlns:tns="t4is.uv.mx/compras" elementFormDefault="qualified">
+
+    <xs:element name="DependenciaProductosRequest">
+        <xs:complexType>
+            <xs:sequence>
+               <xs:element name="Productos">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="Producto">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Nombre" type="xs:string"/>
+                                        <xs:element name="Cantidad" type="xs:int"/>
+                                        <xs:element name="PrecioUnitario" type="xs:decimal"/>
+                                        <xs:element name="NombreVendedor" type="xs:string"/>
+                                        <xs:element name="DireccionVendedor" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DependenciaProductosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Mensaje" type="xs:string"/>
+                <xs:element name="Folios" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="SolicitudFacturaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="OrdenCompra" type="tns:OrdenCompraType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="SolicitudFacturaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="UUID" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="EnviarDatosInventarioRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="OrdenCompra" type="xs:string"></xs:element>
+                <xs:element name="UUIDFactura" type="xs:string"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="EnviarDatosInventarioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Mensaje" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="ProductosType">
+        <xs:sequence>
+            <xs:element name="Producto" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Folio" type="xs:string"></xs:element>
+                        <xs:element name="Nombre" type="xs:string"></xs:element>
+                        <xs:element name="Cantidad" type="xs:int"></xs:element>
+                        <xs:element name="PrecioUnitario" type="xs:decimal"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrdenCompraType">
+        <xs:sequence>
+            <xs:element name="Productos" type="tns:ProductosType"></xs:element>
+            <xs:element name="PrecioTotal" type="xs:decimal"></xs:element>
+            <xs:element name="FechaCompra" type="xs:date"></xs:element>
+            <xs:element name="InformacionVendedor" type="tns:InformacionVendedorType"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="InformacionVendedorType">
+        <xs:sequence>
+            <xs:element name="Nombre" type="xs:string"></xs:element>
+            <xs:element name="Direccion" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
