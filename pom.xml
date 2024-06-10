@@ -45,6 +45,28 @@
 			<version>2.3.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.30</version>
+		</dependency>
+
+		 <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -87,7 +109,7 @@
 				<configuration>
 					<packageName>xx.mx.uv.consumo.wsdl</packageName>
 					<wsdlUrls>
-						<wsdlUrl>http://localhost:8080/ws/inventario.wsdl</wsdlUrl>
+						<wsdlUrl>https://inventarioserviciointegracion-production.up.railway.app/ws/inventario.wsdl</wsdlUrl>
 					</wsdlUrls>
 					<sourceDestDir>${project.basedir}/src/main/java</sourceDestDir>
 				</configuration>
@@ -108,7 +130,7 @@
 				<configuration>
 					<packageName>vv.mx.uv.consumo.wsdl</packageName>
 					<wsdlUrls>
-						<wsdlUrl>http://localhost:8180/ws/facturas.wsdl</wsdlUrl>
+						<wsdlUrl>https://facturas-production.up.railway.app/ws/facturas.wsdl</wsdlUrl>
 					</wsdlUrls>
 					<sourceDestDir>${project.basedir}/src/main/java</sourceDestDir>
 				</configuration>

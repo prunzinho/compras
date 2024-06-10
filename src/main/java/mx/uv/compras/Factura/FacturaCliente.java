@@ -17,7 +17,7 @@ public class FacturaCliente extends WebServiceGatewaySupport {
 
     public GenerarFacturaResponse generarFactura(GenerarFacturaRequest request) {
         return (GenerarFacturaResponse) getWebServiceTemplate()
-                .marshalSendAndReceive(request, new SoapActionCallback("http://localhost:8180/ws/facturas"));
+                .marshalSendAndReceive(request, new SoapActionCallback("https://facturas-production.up.railway.app/ws/facturas"));
     }
 
 }

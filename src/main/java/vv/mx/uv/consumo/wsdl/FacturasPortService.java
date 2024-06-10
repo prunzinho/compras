@@ -17,7 +17,7 @@ import jakarta.xml.ws.WebServiceFeature;
  * Generated source version: 3.0
  * 
  */
-@WebServiceClient(name = "facturasPortService", targetNamespace = "t4is.uv.mx/facturas", wsdlLocation = "http://localhost:8180/ws/facturas.wsdl")
+@WebServiceClient(name = "facturasPortService", targetNamespace = "t4is.uv.mx/facturas", wsdlLocation = "https://facturas-production.up.railway.app/ws/facturas.wsdl")
 public class FacturasPortService
     extends Service
 {
@@ -30,7 +30,7 @@ public class FacturasPortService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:8180/ws/facturas.wsdl");
+            url = new URL("https://facturas-production.up.railway.app/ws/facturas.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
