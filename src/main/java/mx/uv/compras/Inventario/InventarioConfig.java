@@ -20,7 +20,7 @@ public class InventarioConfig {
     @Bean
     public InventarioCliente inventarioCliente(@Qualifier("marshallerInventario") Jaxb2Marshaller marshallerInventario){
         InventarioCliente c = new InventarioCliente();
-        c.setDefaultUri("http://localhost:8080/ws/inventario");
+        c.setDefaultUri("https://inventarioserviciointegracion-production.up.railway.app/ws/inventario");
         c.setMarshaller(marshallerInventario);
         c.setUnmarshaller(marshallerInventario);
         return c;

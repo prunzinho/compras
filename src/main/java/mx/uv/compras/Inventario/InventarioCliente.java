@@ -21,7 +21,7 @@ public class InventarioCliente extends WebServiceGatewaySupport{
         request.setUUIDFactura(idFactura);
         request.setOrden(orden);
         return (GenerarFolioResponse) getWebServiceTemplate()
-                .marshalSendAndReceive(request, new SoapActionCallback("http://localhost:8080/ws/inventario"));
+                .marshalSendAndReceive(request, new SoapActionCallback("https://inventarioserviciointegracion-production.up.railway.app/ws/inventario"));
     }
 
 
