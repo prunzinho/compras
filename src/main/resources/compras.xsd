@@ -2,10 +2,56 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="t4is.uv.mx/compras"
     xmlns:tns="t4is.uv.mx/compras" elementFormDefault="qualified">
 
+    <xs:element name="SolicitarCompraRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Productos">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Producto" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Nombre" type="xs:string" />
+                                        <xs:element name="Cantidad" type="xs:string" />
+                                        <xs:element name="PrecioUnitario" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="InformacionVendedor">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Nombre" type="xs:string" />
+                            <xs:element name="Direccion" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="InformacionComprador">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Nombre" type="xs:string" />
+                            <xs:element name="Direccion" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="SolicitarCompraResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Mensaje" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="DependenciaProductosRequest">
         <xs:complexType>
             <xs:sequence>
-               <xs:element name="Productos">
+                <xs:element name="Productos">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element maxOccurs="unbounded" name="Producto">
@@ -14,14 +60,13 @@
                                         <xs:element name="Nombre" type="xs:string"/>
                                         <xs:element name="Cantidad" type="xs:int"/>
                                         <xs:element name="PrecioUnitario" type="xs:decimal"/>
-                                        <xs:element name="NombreVendedor" type="xs:string"/>
-                                        <xs:element name="DireccionVendedor" type="xs:string"/>
+                                        <xs:element name="InformacionVendedor" type="tns:InformacionVendedorType"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
                     </xs:complexType>
-               </xs:element>
+                </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -46,7 +91,7 @@
     <xs:element name="SolicitudFacturaResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="UUID" type="xs:string"/>
+                <xs:element name="Mensaje" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -73,10 +118,10 @@
             <xs:element name="Producto" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="Folio" type="xs:string"></xs:element>
                         <xs:element name="Nombre" type="xs:string"></xs:element>
                         <xs:element name="Cantidad" type="xs:int"></xs:element>
                         <xs:element name="PrecioUnitario" type="xs:decimal"></xs:element>
+                        <xs:element name="InformacionVendedor" type="tns:InformacionVendedorType"></xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -88,14 +133,13 @@
             <xs:element name="Productos" type="tns:ProductosType"></xs:element>
             <xs:element name="PrecioTotal" type="xs:decimal"></xs:element>
             <xs:element name="FechaCompra" type="xs:date"></xs:element>
-            <xs:element name="InformacionVendedor" type="tns:InformacionVendedorType"></xs:element>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="InformacionVendedorType">
         <xs:sequence>
-            <xs:element name="Nombre" type="xs:string"></xs:element>
-            <xs:element name="Direccion" type="xs:string"></xs:element>
+            <xs:element name="Nombre" type="xs:string"/>
+            <xs:element name="Direccion" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
